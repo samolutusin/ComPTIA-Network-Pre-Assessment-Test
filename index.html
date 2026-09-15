@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHFORCE Assessment Portal - CISM Post-Assessment Test</title>
+    <title>TECHFORCE Assessment Portal - CompTIA CySA+ (CS0-003) Pre-Assessment</title>
     <style>
         :root {
             --primary-color: #004b87;
@@ -199,6 +199,37 @@
 
         .hidden { display: none !important; }
 
+
+        .q-domain {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: var(--secondary-color);
+            background: #e8f4f4;
+            border: 1px solid #b8dcdc;
+            padding: 2px 9px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+        .question-text { white-space: pre-wrap; }
+        .question-code {
+            font-family: Consolas, 'Courier New', monospace;
+            background: #f4f7f9;
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 12.5px;
+            font-weight: 400;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin: 0 0 12px 0;
+            line-height: 1.45;
+            color: #1a2a3a;
+        }
+        .option-label { align-items: flex-start; }
+        .option-label input { margin-top: 4px; flex-shrink: 0; }
+        .option-text { flex: 1; }
         @media (max-width: 600px) {
             .form-grid { grid-template-columns: 1fr; }
         }
@@ -209,13 +240,13 @@
 <div class="container">
     <header>
         <h1>TECHFORCE Assessment Portal</h1>
-        <p>CISM Post-Assessment Examination</p>
-        <div class="subtitle-line">Domain 2 Information Security Risk Management &amp; Domain 3 Building and Managing a Comprehensive Security Program</div>
+        <p>CompTIA CySA+ (CS0-003) Pre-Assessment Test</p>
+        <div class="subtitle-line">Gap-analysis diagnostic — Security Operations, Vulnerability Management, Software &amp; Systems Security, Incident Response, Threat Hunting &amp; Intelligence</div>
         <div class="meta-chips">
             <span class="meta-chip">Questions: 20 multiple-choice</span>
-            <span class="meta-chip">Time: 60 minutes</span>
+            <span class="meta-chip">Time: 30 minutes</span>
             <span class="meta-chip">Pass mark: 70% (14/20)</span>
-            <span class="meta-chip">Format: Single best answer</span>
+            <span class="meta-chip">Format: Single best answer · Closed book</span>
         </div>
     </header>
 
@@ -225,7 +256,7 @@
              - Primary recipient: mactusinit@gmail.com  (form action above)
              - CC recipient:      atundaoba@gmail.com   (_cc field below)
              ============================================================ -->
-        <input type="hidden" name="_subject" id="cfg-subject" value="Official Result: TECHFORCE CISM Post-Assessment Test">
+        <input type="hidden" name="_subject" id="cfg-subject" value="Official Result: TECHFORCE CySA+ (CS0-003) Pre-Assessment Test">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_cc" id="cfg-cc" value="funmilayo.muritala@techforceitservices.com">
@@ -235,7 +266,7 @@
         <input type="hidden" name="Student First Name" id="payload-first">
         <input type="hidden" name="Student Last Name"  id="payload-last">
         <input type="hidden" name="Student Email"      id="payload-email">
-        <input type="hidden" name="Assessment Title"   value="CISM Post-Assessment Examination (Domain 2 & Domain 3)">
+        <input type="hidden" name="Assessment Title"   value="CompTIA CySA+ (CS0-003) Pre-Assessment Test">
         <input type="hidden" name="Final Score & Percentage" id="payload-score">
         <input type="hidden" name="Result (Pass mark 70%)"   id="payload-result">
         <input type="hidden" name="Submission Date"    id="payload-date">
@@ -264,10 +295,10 @@
         <div class="instructions-card">
             <h3>Instructions</h3>
             <ul>
-                <li>This assessment contains 20 multiple-choice questions based on the CISM training materials (Domain 2 role-play activities and the Domain 3 security program management deck)[cite: 1].</li>
-                <li>Each question has four options (A-D). Select the ONE best answer the answer that CISM and the materials reward[cite: 1].</li>
-                <li>Award 5 points per correct answer. Passing benchmark: 70% (14 of 20). Aim to complete within 60 minutes[cite: 1].</li>
-                <li>No external references are permitted. Questions marked with an asterisk (*) are scored calculation items[cite: 1].</li>
+                <li>This is a gap-analysis diagnostic administered before instruction begins. It contains 20 scenario-based multiple-choice questions covering all five CompTIA CySA+ (CS0-003) domains.</li>
+                <li>Each question has four options (A–D). Choose the ONE best answer. Do not mark more than one answer per question. Distractors reflect common real-world mistakes — read every option carefully.</li>
+                <li>Award 5 points per correct answer. Passing benchmark: 70% (14 of 20). Closed book. Aim to complete within 30 minutes.</li>
+                <li>Enter your first name, last name, and email at the top. All fields and all questions are required before you can submit.</li>
             </ul>
         </div>
 
@@ -310,266 +341,296 @@
    - ASSESSMENT_TITLE . shown on the page, the PDF report and the email
    ============================================================================ */
 const PRIMARY_EMAIL    = "mactusinit@gmail.com";
-const CC_EMAIL         = "atundaoba@gmail.com";
+const CC_EMAIL         = "temitopeabidemi155@gmail.com";
 const PASS_MARK        = 0.70;
-const ASSESSMENT_TITLE = "CISM Post-Assessment Examination";
+const ASSESSMENT_TITLE = "CompTIA CySA+ (CS0-003) Pre-Assessment Test";
 const PORTAL_NAME      = "TECHFORCE Assessment Portal";
 
 /* ============================================================================
-   EDITABLE QUESTION BANK  (Extracted from CISM_Post_Assessment_20Q.pdf)
+   EDITABLE QUESTION BANK  (Extracted from CompTIA_CySA_PreAssessment_Instructor.pdf)
+   Correct answers are stored here for grading only — they are NOT shown on the form.
    ============================================================================ */
 const quizData = [
     {
-        sectionTitle: "SECTION 1 · QUESTIONS",
-        sectionWeight: "20 QUESTIONS",
+        sectionTitle: "PRE-ASSESSMENT QUESTIONS",
+        sectionWeight: "20 QUESTIONS · 5 DOMAINS",
         questions: [
-            { 
-                id: "q1", 
-                num: 1, 
-                text: "In an organization's data classification and handling policy, classification levels (e.g., Public / Internal / Confidential / Restricted) should be defined primarily by:", 
+            {
+                id: "q1",
+                num: 1,
+                domain: "Domain 1.0 · Security Operations",
+                text: "A SOC analyst receives the following output from a SIEM correlation rule:",
+                scenario: "Event 1:  2025-03-14 02:14:22  10.1.4.88 -> 10.1.4.255  NBNS Name Query, count=1247\nEvent 2:  2025-03-14 02:14:31  10.1.4.88 -> 192.168.22.7  SMB2 Session Setup, status=STATUS_LOGON_FAILURE\nEvent 3:  2025-03-14 02:14:31  10.1.4.88 -> 192.168.22.8  SMB2 Session Setup, status=STATUS_LOGON_FAILURE\n...(repeated for 48 hosts)...\nEvent 4:  2025-03-14 02:17:05  10.1.4.88 -> 192.168.22.41 SMB2 Session Setup, status=STATUS_SUCCESS",
+                textAfter: "Which technique is most likely being observed, and what data source would best confirm lateral movement from host 192.168.22.41?",
                 options: [
-                    "A. The storage medium or cloud platform on which the data resides.", 
-                    "B. The person or department who created the data.", 
-                    "C. The business impact resulting from loss of the data's confidentiality, integrity, or availability.", 
-                    "D. The format of the data (structured versus unstructured)."
-                ], 
-                answer: "C" 
+                    "A. Pass-the-Hash; Windows Security Event ID 4624 (logon type 9) on 192.168.22.41",
+                    "B. LLMNR/NBT-NS poisoning followed by SMB relay; Windows Security Event ID 4624 (logon type 3) on 192.168.22.41",
+                    "C. Internal reconnaissance (SMB sweep) followed by brute-force authentication; Windows Security Event ID 4625 on 192.168.22.41",
+                    "D. Kerberoasting; TGS-REQ (Event ID 4769) with RC4 encryption on the domain controller"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q2", 
-                num: 2, 
-                text: "Within a data classification scheme, who is responsible for ASSIGNING the classification level and approving access to the data?", 
+            {
+                id: "q2",
+                num: 2,
+                domain: "Domain 1.0 · Security Operations",
+                text: "You are tuning a SIEM and notice that a single rule generating high-fidelity critical alerts produces ~300 alerts per day, and the SOC triages about 20 of them as true incidents. The remaining alerts are all generated by a known vulnerability scanner, which the security team already monitors through a separate workflow. Which two metrics are correctly paired with their values, and what is the appropriate tuning action?",
                 options: [
-                    "A. The data (business) owner.", 
-                    "B. The IT custodian, who implements the controls.", 
-                    "C. The information security manager who designed the scheme.", 
-                    "D. The Chief Information Security Officer (CISO)."
-                ], 
-                answer: "A" 
+                    "A. Precision ≈ 6.7%; add an allow-list/suppression for the scanner source IP",
+                    "B. True Positive Rate ≈ 93.3%; convert the rule to a higher severity",
+                    "C. False Negative Rate ≈ 6.7%; lower the threshold to reduce missed alerts",
+                    "D. Accuracy ≈ 93.3%; leave the rule as-is — it is performing well"
+                ],
+                answer: "A"
             },
-            { 
-                id: "q3", 
-                num: 3, 
-                text: "A warehouse disruption would cause a loss of $2,000,000, and analysis estimates the incident will occur once every four years. The annualized loss expectancy (ALE) is:", 
+            {
+                id: "q3",
+                num: 3,
+                domain: "Domain 2.0 · Vulnerability Management",
+                text: "An organization runs continuous vulnerability scans with an authenticated Nessus scanner. A recent scan of a Linux web server shows zero critical vulnerabilities. However, an unauthenticated external scan against the same host reports three critical CVEs in Apache httpd 2.4.49, which is confirmed to be the running version. Which is the most likely root cause?",
                 options: [
-                    "A. $250,000", 
-                    "B. $500,000", 
-                    "C. $2,000,000", 
-                    "D. $8,000,000"
-                ], 
-                answer: "B" 
+                    "A. The authenticated scanner's credential has expired and the scan reverted to unauthenticated mode, but plugin 12345 did not fire",
+                    "B. The host has a host-based firewall blocking the scanner's IP from TCP/443 during authenticated scans, causing false negatives",
+                    "C. A Red Hat / Canonical \"backport\" patch has been applied; the vendor advisory maps the fixed build to a different CPE, but the unauthenticated banner still reports 2.4.49",
+                    "D. The Apache ServerTokens directive is set to Full, which causes unauthenticated scanners to over-report version-based CVEs while authenticated package-manager queries correctly report \"not vulnerable\""
+                ],
+                answer: "C"
             },
-            { 
-                id: "q4", 
-                num: 4, 
-                text: "Management decides NOT to fund a control recommended to treat a significant risk. The information security manager should FIRST:", 
+            {
+                id: "q4",
+                num: 4,
+                domain: "Domain 2.0 · Vulnerability Management",
+                text: "Given the following CVSS v3.1 vector for CVE-2024-9999:",
+                scenario: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                textAfter: "A vendor scoring you subscribe to publishes an EPSS score of 0.94 and a KEV (CISA Known Exploited Vulnerability) flag = True. Your asset inventory shows the vulnerable product is present on 3 internet-facing web servers, 8 internal application servers, and 0 hardened jump boxes. You patch on a 14-day SLA for internet-facing criticals and a 30-day SLA for internal criticals. A threat intel feed shows the vulnerability is currently being used in opportunistic ransomware campaigns. What is the most defensible prioritization decision?",
                 options: [
-                    "A. Remove the risk from the risk register, since it will not be treated.", 
-                    "B. Escalate the decision to the external auditor to force funding.", 
-                    "C. Ensure the residual risk is formally accepted by the business owner, documented, time-bound, and monitored.", 
-                    "D. Implement the control anyway using the existing security budget."
-                ], 
-                answer: "C" 
+                    "A. Patch the internet-facing servers within 14 days per SLA; internal servers can wait 30 days — CVSS 9.8 is rated Critical but the SLA already accounts for risk",
+                    "B. Treat as emergency — patch or virtual-patch all instances (internet-facing and internal) within 72 hours because EPSS > 0.9 + KEV listing indicates active, weaponized exploitation",
+                    "C. Patch only the 3 internet-facing servers within 24 hours; leave internal servers for the next patch Tuesday — there is no evidence of internal pivoting in published exploit chains",
+                    "D. Defer patching until a proof-of-concept is publicly released; EPSS is a predictive score and not evidence of exploitation, and the KEV flag only means it has been exploited in the wild at some point"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q5", 
-                num: 5, 
-                text: "An audit confirms that operational security is strong but that no senior-level accountability exists for enterprise-wide cyber risk. Accountability for accepting enterprise information risk should ultimately sit with:", 
+            {
+                id: "q5",
+                num: 5,
+                domain: "Domain 3.0 · Software & Systems Security",
+                text: "A code-review of a Python microservice reveals the following snippet:",
+                scenario: "@app.route(\"/download\")\ndef download():\n    filename = request.args.get(\"file\")\n    path = os.path.join(\"/var/app/uploads/\", filename)\n    return send_file(path)",
+                textAfter: "A static analysis tool flags the code, but a junior developer argues the code is safe because os.path.join will not traverse outside /var/app/uploads/. Which statement is correct?",
                 options: [
-                    "A. The Head of IT Security, as the technical expert.", 
-                    "B. Senior management and the board, with IT security acting as steward and adviser.", 
-                    "C. The external auditors who issued the finding.", 
-                    "D. The enterprise architect who designs the security controls."
-                ], 
-                answer: "B" 
+                    "A. The code is safe — os.path.join resolves .. components before returning, preventing directory traversal",
+                    "B. The code is vulnerable to path traversal; os.path.join does not normalize the path, and an attacker can supply ../../etc/passwd to read arbitrary files. The fix is to verify os.path.realpath(path).startswith('/var/app/uploads/') before sending",
+                    "C. The code is vulnerable to SQL injection via the file parameter; the fix is to use parameterized queries",
+                    "D. The code is vulnerable to path traversal, but only on Windows; on Linux the leading / in the join prevents escape"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q6", 
-                num: 6, 
-                text: "Which of the following is MOST appropriate for a board-level security report?", 
+            {
+                id: "q6",
+                num: 6,
+                domain: "Domain 3.0 · Software & Systems Security",
+                text: "An EDR alert fires on a Windows endpoint showing that winword.exe spawned cmd.exe, which in turn spawned powershell.exe -enc JABhAD0AJwBiAHMAZQBh.... The decoded base64 payload is a PowerShell download cradle. This pattern is most characteristic of which kill-chain stage and MITRE ATT&CK mapping?",
                 options: [
-                    "A. Counts of patched vulnerabilities and open tickets from the last quarter.", 
-                    "B. Key risk indicators (KRIs) tied to strategy, risk appetite, and decision-making.", 
-                    "C. A list of the latest malware signatures blocked by the endpoint tool.", 
-                    "D. The percentage of users who completed annual security training."
-                ], 
-                answer: "B" 
+                    "A. Lateral Movement → T1021.002 SMB/Windows Admin Shares",
+                    "B. Execution → T1204.002 User Execution (Malicious File) followed by T1059.001 PowerShell",
+                    "C. Persistence → T1547.001 Registry Run Keys / Startup Folder",
+                    "D. Credential Access → T1003.001 LSASS Memory (Mimikatz)"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q7", 
-                num: 7, 
-                text: "When presenting a major security investment to the board, the MOST compelling justification is:", 
+            {
+                id: "q7",
+                num: 7,
+                domain: "Domain 4.0 · Incident Response Management",
+                text: "An employee's corporate laptop is suspected to be infected with infostealer malware. The IR team seizes the device. The analyst needs to preserve volatile data first before shutdown. Which is the correct order of volatility (most volatile to least) according to NIST SP 800-86 / forensic best practice?",
                 options: [
-                    "A. Recent breach statistics from competitors in the same industry.", 
-                    "B. The number of vulnerabilities the new platform will remediate.", 
-                    "C. A quantified reduction in annualized loss exposure weighed against the total cost of ownership.", 
-                    "D. A vendor benchmark showing that peers have already adopted the solution."
-                ], 
-                answer: "C" 
+                    "A. Disk / SSD → RAM → ARP cache → Running processes → Remote logs",
+                    "B. RAM → Running processes → Network connections / ARP cache → Disk → Remote logs / backups",
+                    "C. RAM → Network connections / ARP cache → Running processes → Disk → Remote logs / backups",
+                    "D. CPU registers / cache → RAM → Running processes → Network state → Disk → Archival media / logs"
+                ],
+                answer: "D"
             },
-            { 
-                id: "q8", 
-                num: 8, 
-                text: "The CFO asks whether cyber insurance would replace the recommended control. The information security manager's BEST response is that risk transfer:", 
+            {
+                id: "q8",
+                num: 8,
+                domain: "Domain 4.0 · Incident Response Management",
+                text: "During an active incident, the SOC lead decides to isolate an infected host from the network using NAC switch-port controls, rather than simply pulling the network cable. The primary forensic and operational reason for preferring NAC-based isolation over cable-pull is:",
                 options: [
-                    "A. Fully replaces mitigation, so the control is unnecessary.", 
-                    "B. Is appropriate for high-impact, low-frequency losses but carries exclusions and deductibles, requires controls as a condition of cover, and does not cover reputational damage or lost contracts.", 
-                    "C. Is the only solution because insurance eliminates all residual risk.", 
-                    "D. Should be rejected categorically because insurance is never a legitimate treatment."
-                ], 
-                answer: "B" 
+                    "A. Cable pulls leave physical evidence that can be challenged in court; NAC actions are purely logical and inadmissible",
+                    "B. NAC isolation preserves the host's existing network connections while blocking new ones, allowing ongoing C2 beacon collection in a controlled manner",
+                    "C. NAC isolation can move the host to a quarantine VLAN that still allows controlled access to forensic tools, EDR heartbeat, DNS sinkholes, and remediation servers while blocking attacker communication",
+                    "D. Cable-pull instantly terminates running processes and destroys volatile memory; NAC isolation does not"
+                ],
+                answer: "C"
             },
-            { 
-                id: "q9", 
-                num: 9, 
-                text: "Employees are pasting client data into public generative-AI chatbots. What should be addressed FIRST?", 
+            {
+                id: "q9",
+                num: 9,
+                domain: "Domain 4.0 · Incident Response Management",
+                text: "After containing a ransomware incident, an analyst is constructing the timeline of events. The following data points are collected:",
+                scenario: "- File server share shows mass encryption timestamps at 2025-04-02 03:18:02 UTC.\n- EDR on the initial-compromise HR workstation shows first malicious macro execution at 2025-04-01 09:42:17 UTC.\n- Firewall logs show the workstation calling a known C2 IP at 2025-04-01 09:43:55 UTC.\n- Domain Controller logs show Service Ticket (TGS) requests for cifs/fs01.corp.local from the HR workstation at 2025-04-01 14:22:08 UTC under a service account context.\n- Veeam backup server logs show an unusual SMB connection from fs01 to the backup repository at 2025-04-02 02:55:11 UTC, followed by deletion of restore points.",
+                textAfter: "What is the most reasonable inference about the dwell time and the adversary's behavior between 09:43 UTC on 04-01 and 03:18 UTC on 04-02?",
                 options: [
-                    "A. Banner the AI tools across the network.", 
-                    "B. Update the classification scheme so the sensitivity of the data is understood.", 
-                    "C. Draft a new policy that prohibits all AI use.", 
-                    "D. Purchase a secure enterprise AI gateway before anything else."
-                ], 
-                answer: "B" 
+                    "A. Dwell time is approximately 17.5 hours; the adversary performed reconnaissance, credential access (likely Kerberoasting against the cifs service account), lateral movement to the file server, sabotage of backups, then deployed ransomware — consistent with a hands-on human-operated ransomware playbook",
+                    "B. Dwell time is approximately 5 minutes (09:42–09:47); the long gap before encryption is simply due to a slow polymorphic encryptor running at low priority",
+                    "C. Dwell time cannot be determined from the given data because the backup deletion at 02:55 is unrelated to ransomware",
+                    "D. Dwell time is approximately 4 days; the TGS request at 14:22 is a false positive because Kerberos TGS requests are routine and should be ignored"
+                ],
+                answer: "A"
             },
-            { 
-                id: "q10", 
-                num: 10, 
-                text: "Which factor is the SINGLE strongest determinant of whether a security policy change succeeds?", 
+            {
+                id: "q10",
+                num: 10,
+                domain: "Domain 5.0 · Threat Hunting & Intelligence",
+                text: "A threat-hunting team is developing hypotheses. Which of the following hypotheses is written at the correct level of abstraction to drive a focused hunt (i.e., is falsifiable, tied to TTPs, and can be tested with available data)?",
                 options: [
-                    "A. The technical sophistication of the security tooling.", 
-                    "B. Senior management support (top-down mandate, approval, and enforcement).", 
-                    "C. The length and detail of the policy document.", 
-                    "D. The amount of security budget available."
-                ], 
-                answer: "B" 
+                    "A. \"We are compromised by a nation-state actor.\"",
+                    "B. \"An unauthorized adversary is using living-off-the-land binaries (LOLBins) such as bitsadmin.exe or certutil.exe -urlcache to download second-stage payloads onto endpoints that have not yet raised EDR alerts; we will test this by examining Sysmon Event ID 1 process creations for those binaries with -urlcache or -transfer arguments originating from Office parent processes.\"",
+                    "C. \"Our users click on phishing emails; we should deploy more phish awareness training.\"",
+                    "D. \"Malware exists on the network.\""
+                ],
+                answer: "B"
             },
-            { 
-                id: "q11", 
-                num: 11, 
-                text: "A software company's largest enterprise clients require demonstrable adherence to a recognized cybersecurity framework as a condition of contract. The PRIMARY business driver for adopting the framework is:", 
+            {
+                id: "q11",
+                num: 11,
+                domain: "Domain 5.0 · Threat Hunting & Intelligence",
+                text: "A threat intel analyst receives three reports:\n\n1. A vendor blog describing a new APT group's custom implant, with no IOCs and only high-level TTP descriptions.\n2. A commercial feed providing 140 newly observed malicious IPs, with no context or first-seen timestamps.\n3. An ISAC (Information Sharing and Analysis Center) report containing TTPs, 12 domain IOCs marked with TLP:AMBER, and a YARA rule for the implant.\n\nWhich of the following correctly orders these sources by their intelligence tier (strategic → operational → tactical) and identifies the most appropriate direct use of each?",
                 options: [
-                    "A. Improving the technical configuration of security tools.", 
-                    "B. Meeting contractual and regulatory requirements while providing assurance to clients.", 
-                    "C. Reducing the cost of the incident response team.", 
-                    "D. Keeping pace with competitors' marketing claims."
-                ], 
-                answer: "B" 
+                    "A. 1=Strategic (executive briefings/risk decisions); 3=Operational (detections, hunt hypotheses, SOC playbooks); 2=Tactical (block lists / SIEM enrichment)",
+                    "B. 1=Tactical; 2=Strategic; 3=Operational",
+                    "C. 1=Operational; 2=Tactical; 3=Strategic",
+                    "D. 1=Strategic; 2=Operational; 3=Tactical"
+                ],
+                answer: "A"
             },
-            { 
-                id: "q12", 
-                num: 12, 
-                text: "After senior management has endorsed adoption of a cybersecurity framework, the FIRST step in the adoption process should be to:", 
+            {
+                id: "q12",
+                num: 12,
+                domain: "Domain 1.0 · Security Operations",
+                text: "A security analyst reviews the following Zeek (Bro) conn.log entries (simplified):",
+                scenario: "ts       id.orig_h    id.resp_h   resp_pkts  resp_bytes  conn_state  service\n09:14:02 10.1.5.20    10.1.5.1     0          0           S0          -\n09:14:03 10.1.5.20    10.1.5.2     0          0           S0          -\n09:14:03 10.1.5.20    10.1.5.3     0          0           S0          -\n...\n09:14:05 10.1.5.20    10.1.5.254   0          0           S0          -",
+                textAfter: "conn_state S0 means a SYN was sent with no response. All traffic is to destination port 22 (SSH). What does this traffic most likely represent?",
                 options: [
-                    "A. Purchase a governance, risk and compliance platform to automate reporting.", 
-                    "B. Perform a gap analysis of current practices against the chosen framework.", 
-                    "C. Immediately begin drafting all required policies and procedures.", 
-                    "D. Hire an external consultant to run the certification audit."
-                ], 
-                answer: "B" 
+                    "A. Successful SSH brute-force attack followed by lateral movement",
+                    "B. An SSH port scan (half-open / SYN scan) of the 10.1.5.0/24 subnet",
+                    "C. Normal network discovery performed by the IT asset-management system",
+                    "D. A Distributed Denial of Service (DDoS) against 10.1.5.20"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q13", 
-                num: 13, 
-                text: "Pressed by a client, an executive proposes stating in contracts that the company complies with ISO 27001 even though no ISMS or audit exists. The information security manager's BEST response is to:", 
+            {
+                id: "q13",
+                num: 13,
+                domain: "Domain 2.0 · Vulnerability Management",
+                text: "A vulnerability management program produces the following metrics over four quarters:",
+                scenario: "Q1: 412 criticals detected, 62% remediated within SLA, MTTR 38 days, scan coverage 71%\nQ2: 398 criticals detected, 71% remediated within SLA, MTTR 31 days, scan coverage 74%\nQ3: 455 criticals detected, 80% remediated within SLA, MTTR 24 days, scan coverage 76%\nQ4: 487 criticals detected, 83% remediated within SLA, MTTR 21 days, scan coverage 78%",
+                textAfter: "The CISO asks why the count of critical vulnerabilities keeps rising even as the program \"improves.\" Which response is most accurate?",
                 options: [
-                    "A. Agree, since the security team informally follows many of the controls.", 
-                    "B. Decline and explain that claiming compliance without a certified ISMS is misrepresentation that creates legal and contractual risk.", 
-                    "C. Suggest claiming compliance only to smaller clients to limit exposure.", 
-                    "D. Defer the decision to the marketing department."
-                ], 
-                answer: "B" 
+                    "A. The remediation program is failing — rising critical counts mean patches are not being applied, and the SLA-remediation percentage is a vanity metric",
+                    "B. Increased detection (rising scan coverage and possibly new plugins/feed updates) is exposing more previously unknown vulnerabilities; remediation velocity and SLA adherence are improving, but asset coverage remains the program's biggest gap",
+                    "C. The CVSS scoring algorithm changed in Q3, inflating scores — this is entirely a measurement artifact",
+                    "D. The increase is due to attackers introducing new vulnerabilities into the environment, which is outside VM's control"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q14", 
-                num: 14, 
-                text: "A client requires certified, third-party-attested assurance that an information security management system (ISMS) is in place. Which framework is the MOST appropriate selection?", 
+            {
+                id: "q14",
+                num: 14,
+                domain: "Domain 4.0 · Incident Response Management",
+                text: "An analyst is writing an incident-report executive summary for a business-email-compromise (BEC) incident that resulted in $420,000 in fraudulent wire transfers, two of which were recovered. The report audience is the CEO, CFO, and board risk committee. Which set of details is most appropriate for the executive summary section?",
                 options: [
-                    "A. ISO 27001, because it supports independent certification by an accredited body.", 
-                    "B. NIST Cybersecurity Framework, because it provides maturity-based self-assessment.", 
-                    "C. CIS Controls, because it offers a prioritized technical baseline.", 
-                    "D. The Business Model Canvas, because it aligns security to the value logic."
-                ], 
-                answer: "A" 
+                    "A. Full packet captures, IDS signature IDs, hash values of the malware, and a 30-page IoC list",
+                    "B. Business impact ($420,000 gross / $180,000 recovered loss), timeline narrative (initial compromise → fraudulent transfer requests → detection and response), root cause in business terms (weak dual-control on wire approvals + display-name spoofing of CEO mailbox), and top 3 remediation actions with owners and dates",
+                    "C. The analyst's personal opinion of the finance team's negligence, and a recommendation to terminate the employee who clicked the link",
+                    "D. Raw SIEM log excerpts and raw email headers so the board can form their own technical conclusions"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q15", 
-                num: 15, 
-                text: "Which statement correctly distinguishes a security PROGRAM from a security PROJECT?", 
+            {
+                id: "q15",
+                num: 15,
+                domain: "Domain 1.0 · Security Operations",
+                text: "A SOC receives a high-volume DDoS alert indicating 18 Gbps of inbound UDP traffic targeting the public DNS resolvers from thousands of spoofed source IPs, with request types predominantly ANY and a small ratio of legitimate A queries. This best describes which type of attack and which mitigation is most effective at the ISP/scrubbing layer?",
                 options: [
-                    "A. A program has a defined end date; a project is continuous and ongoing.", 
-                    "B. A program delivers a specific output then closes; a project provides ongoing governance.", 
-                    "C. A program provides sustained, ongoing management of risk with no defined end date; a project delivers a specific time-bounded outcome.", 
-                    "D. A program is technical in nature; a project is always governance-related."
-                ], 
-                answer: "C" 
+                    "A. DNS amplification / reflection DDoS; BCP38/URPF at upstream providers plus DNS response-rate limiting (RRL) and selective dropping of ANY queries at the resolver",
+                    "B. DNS tunneling; block outbound UDP/53 from non-resolver hosts",
+                    "C. SYN flood; enable SYN cookies on the resolver",
+                    "D. DNS hijacking; rotate DNSSEC keys immediately"
+                ],
+                answer: "A"
             },
-            { 
-                id: "q16", 
-                num: 16, 
-                text: "Which is the correct sequence in the security program fundamentals from assets to controls?", 
+            {
+                id: "q16",
+                num: 16,
+                domain: "Domain 3.0 · Software & Systems Security",
+                text: "A developer reports that an Android mobile application stores user OAuth tokens in SharedPreferences using MODE_PRIVATE. The device is not rooted. A security assessment should conclude:",
                 options: [
-                    "A. Select controls \u2192 Assess risk \u2192 Identify & classify \u2192 Implement & monitor.", 
-                    "B. Identify & classify \u2192 Assess risk \u2192 Select controls \u2192 Implement & monitor.", 
-                    "C. Assess risk \u2192 Identify & classify \u2192 Implement & monitor \u2192 Select controls.", 
-                    "D. Implement & monitor \u2192 Select controls \u2192 Identify & classify \u2192 Assess risk."
-                ], 
-                answer: "B" 
+                    "A. This is completely secure; MODE_PRIVATE enforces Unix 0600 permissions and Android's sandbox prevents any other process from reading the file",
+                    "B. This is insecure because SharedPreferences is stored in plain XML under /data/data/<pkg>/shared_prefs/; on rooted devices, devices with unlocked bootloaders, or via backup exploitation (e.g., adb backup with allowBackup=true), tokens can be extracted. Tokens should be stored in the Android Keystore system (or EncryptedSharedPreferences using a master key in Keystore)",
+                    "C. This is insecure only on Android versions below 6.0; since Android 7.0 the runtime permission model prevents access",
+                    "D. This is insecure because OAuth tokens must always be stored only in server-side memory and never on the client at all"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q17", 
-                num: 17, 
-                text: "An organization adopts a public cloud model. Under the cloud shared responsibility model, which elements remain the CUSTOMER's responsibility?", 
+            {
+                id: "q17",
+                num: 17,
+                domain: "Domain 5.0 · Threat Hunting & Intelligence",
+                text: "You are analyzing a raw IPv4 packet capture from a network tap during a suspected intrusion and observe a TCP handshake in which the three packets have the following flag combinations (in order): Packet 1 = SYN, Packet 2 = SYN-ACK, Packet 3 = ACK. The source port in Packet 1 is 58432, destination port is 23 (Telnet). Immediately after the handshake the session contains unprintable binary data rather than Telnet option negotiation. This is most consistent with:",
                 options: [
-                    "A. The physical security of the cloud provider's data centers and the hypervisor.", 
-                    "B. Data, identity management, access configuration, and customer workloads.", 
-                    "C. The underlying network fabric and the hardware hosting the services.", 
-                    "D. All responsibility transfers entirely to the cloud provider."
-                ], 
-                answer: "B" 
+                    "A. A standard, legitimate Telnet session — Telnet always sends binary after negotiation",
+                    "B. Protocol mismatch / misconfiguration on the Telnet server",
+                    "C. A backdoor or non-Telnet service listening on TCP/23 attempting to avoid port-based detection; this is a TTP that threat hunters and IR analysts should flag for deeper inspection",
+                    "D. A TCP port scan; no session actually followed the handshake"
+                ],
+                answer: "C"
             },
-            { 
-                id: "q18", 
-                num: 18, 
-                text: "Which statement correctly describes the difference between a SOC 1 Type 1 and a SOC 2 Type 2 report?", 
+            {
+                id: "q18",
+                num: 18,
+                domain: "Domain 5.0 · Threat Hunting & Intelligence",
+                text: "A threat hunter observes a process on a Linux server making a DNS query for a domain that resolves to 127.0.0.1 (localhost), followed immediately by the same process initiating an outbound TLS connection to an external IP on TCP/443. No local DNS resolver is listening on 127.0.0.1:53, yet the process still successfully resolves the external IP. Which evasion technique does this most likely indicate?",
                 options: [
-                    "A. Type 1 evaluates control design at a point in time; Type 2 evaluates operating effectiveness over a defined period.", 
-                    "B. Type 1 covers financial controls; Type 2 covers only physical security.", 
-                    "C. Type 1 is issued by the client; Type 2 is issued by the service organization itself.", 
-                    "D. Type 1 evaluates operating effectiveness over a period; Type 2 evaluates design at a point in time."
-                ], 
-                answer: "A" 
+                    "A. DNSSEC validation bypass",
+                    "B. DoH/DoT (DNS-over-HTTPS or DNS-over-TLS) being used to bypass enterprise DNS monitoring/filtering — the query to localhost may be a failsafe, and the external TLS on 443 carries encrypted DNS",
+                    "C. A standard DNS A-record lookup followed by HTTPS; this is normal behavior",
+                    "D. DNS cache poisoning of the local resolver"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q19", 
-                num: 19, 
-                text: "During a threat-modeling exercise, an analyst identifies a finding in which an attacker can modify records in a database without authorization. Under the STRIDE model, this threatens which category?", 
+            {
+                id: "q19",
+                num: 19,
+                domain: "Domain 2.0 · Vulnerability Management",
+                text: "A scan report flags a finding on a host with CVSS base score 7.5 (High) in an in-scope asset, but the software component is only reachable via localhost and the host is fully patched at the OS level, has EDR, and requires VPN + MFA for administrative access. The business owner of the system argues the finding should be accepted as-is. According to risk-management principles, the analyst should:",
                 options: [
-                    "A. Spoofing", 
-                    "B. Repudiation", 
-                    "C. Tampering", 
-                    "D. Elevation of Privilege"
-                ], 
-                answer: "C" 
+                    "A. Automatically override the CVSS score to 0.0 if the business owner asks — CVSS is only advisory",
+                    "B. Treat CVSS as the inherent score and calculate a residual risk using environmental metrics (CVSS Environmental Score / MAV, MAC, MPR, etc.) adjusted for reachability and compensating controls, then document the risk acceptance through formal risk-registry sign-off if residual risk is within tolerance",
+                    "C. Mark the finding as a false positive in the scanner with no further documentation because compensating controls exist",
+                    "D. Escalate directly to the CISO and refuse to accept the risk under any circumstance"
+                ],
+                answer: "B"
             },
-            { 
-                id: "q20", 
-                num: 20, 
-                text: "Which statement correctly describes the IAAA model for access control?", 
+            {
+                id: "q20",
+                num: 20,
+                domain: "Domain 3.0 · Software & Systems Security",
+                text: "An application is failing input-validation tests. The pentest team reports that submitting \u003cscript\u003ealert(1)\u003c/script\u003e into a profile \"bio\" field causes the script to execute when another user views that profile. The development team says they will fix it by stripping \u003cscript\u003e tags with a regular expression. Why is this remediation inadequate, and what is the correct defense-in-depth approach?",
                 options: [
-                    "A. Authentication, Authorization, Accounting, and a fourth step (Identification) that comes FIRST in the sequence.", 
-                    "B. Authorization comes before authentication to enforce least privilege.", 
-                    "C. Accounting is the first step and is performed before identification.", 
-                    "D. IAAA adds 'Insider' as the first category of identity."
-                ], 
-                answer: "A" 
+                    "A. Regex-based stripping is bypassable (e.g., <img src=x onerror=alert(1)>, nested tags, event handlers, javascript: URIs, encoding variations); the correct fix is context-aware output encoding, a strict Content Security Policy (CSP) with script-src restrictions, HttpOnly+Secure cookies, and input validation using allow-lists rather than block-lists",
+                    "B. The regex fix is actually sufficient; the pentest team is being pedantic",
+                    "C. The only real fix is to use a WAF; application-layer changes cannot prevent XSS",
+                    "D. The fix should switch from GET to POST parameters; XSS is a transport-layer issue"
+                ],
+                answer: "A"
             }
         ]
     }
 ];
 
-/* ============================================================================
-   QUIZ RENDERING
-   ============================================================================ */
 function flatQuestions() {
     const all = [];
     quizData.forEach((sec, si) => sec.questions.forEach(q => all.push({ ...q, sectionIndex: si, sectionTitle: sec.sectionTitle })));
@@ -595,9 +656,31 @@ function renderQuiz() {
             num.className = 'question-num';
             num.textContent = `Question ${q.num}`;
 
+            card.appendChild(num);
+            if (q.domain) {
+                const dom = document.createElement('div');
+                dom.className = 'q-domain';
+                dom.textContent = q.domain;
+                card.appendChild(dom);
+            }
+
             const text = document.createElement('div');
             text.className = 'question-text';
             text.textContent = q.text;
+            card.appendChild(text);
+
+            if (q.scenario) {
+                const pre = document.createElement('pre');
+                pre.className = 'question-code';
+                pre.textContent = q.scenario;
+                card.appendChild(pre);
+            }
+            if (q.textAfter) {
+                const after = document.createElement('div');
+                after.className = 'question-text';
+                after.textContent = q.textAfter;
+                card.appendChild(after);
+            }
 
             const optsGroup = document.createElement('div');
             optsGroup.className = 'options-group';
@@ -610,13 +693,14 @@ function renderQuiz() {
                 input.name = q.id;
                 input.value = opt.charAt(0);
                 input.addEventListener('change', () => card.classList.remove('unanswered'));
+                const span = document.createElement('span');
+                span.className = 'option-text';
+                span.textContent = opt;
                 label.appendChild(input);
-                label.appendChild(document.createTextNode(' ' + opt));
+                label.appendChild(span);
                 optsGroup.appendChild(label);
             });
 
-            card.appendChild(num);
-            card.appendChild(text);
             card.appendChild(optsGroup);
             container.appendChild(card);
         });
@@ -777,7 +861,7 @@ function buildResultPdf(p) {
 
         y = 92;
         doc.text(M, y, ASSESSMENT_TITLE, { size: 19, bold: true, color: PDF_C.primary }); y += 16;
-        doc.text(M, y, 'CISM Post-Assessment Examination - Result Report', { size: 10.5, color: PDF_C.gray }); y += 18;
+        doc.text(M, y, 'CySA+ CS0-003 Pre-Assessment - Result Report', { size: 10.5, color: PDF_C.gray }); y += 18;
     }
 
     function drawInfoBox() {
@@ -972,8 +1056,9 @@ function gradeSubmission(questions) {
         const isCorrect = chosen === q.answer;
         if (isCorrect) { correctCount++; sections[q.sectionIndex].correct++; }
         const strip = l => (q.options.find(o => o.charAt(0) === l) || l + '.').replace(/^[A-D]\.\s*/, '');
+        const stem = [q.text, q.textAfter].filter(Boolean).join(' ');
         sections[q.sectionIndex].items.push({
-            num: q.num, text: q.text,
+            num: q.num, text: stem,
             selectedLetter: chosen, selectedText: strip(chosen),
             correctLetter: q.answer, correctText: strip(q.answer),
             isCorrect
@@ -1086,7 +1171,7 @@ async function ajaxFallbackNotify(payload) {
     fd.append('Student First Name', payload.first);
     fd.append('Student Last Name', payload.last);
     fd.append('Student Email', payload.email);
-    fd.append('Assessment Title', ASSESSMENT_TITLE + ' (Domain 2 & Domain 3)');
+    fd.append('Assessment Title', ASSESSMENT_TITLE);
     fd.append('Final Score & Percentage', `${payload.correctCount} / ${payload.total} (${payload.percentage}%)`);
     fd.append('Result (Pass mark 70%)', payload.passed ? 'PASS' : 'FAIL');
     fd.append('Submission Date', payload.dateStr);
@@ -1124,7 +1209,7 @@ document.getElementById('assessment-form').addEventListener('submit', async func
 
     const pdfBytes = buildResultPdf(payload);
     const safeName = (s) => s.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '');
-    const pdfName = `CISM-PostAssessment-Result-${safeName(payload.first)}-${safeName(payload.last)}-${new Date().toISOString().slice(0, 10)}.pdf`;
+    const pdfName = `CySA-PreAssessment-Result-${safeName(payload.first)}-${safeName(payload.last)}-${new Date().toISOString().slice(0, 10)}.pdf`;
     const pdfFile = new File([pdfBytes], pdfName, { type: 'application/pdf' });
 
     document.getElementById('payload-first').value = payload.first;
@@ -1178,5 +1263,5 @@ document.getElementById('assessment-form').addEventListener('submit', async func
 );
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3b67b4e99dc632b',t:'MTc4OTQ2MzI1Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
