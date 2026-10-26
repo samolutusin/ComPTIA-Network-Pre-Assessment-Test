@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHFORCE Assessment Portal - CompTIA CySA+ (CS0-003) Post-Assessment</title>
+    <title>TECHFORCE Assessment Portal - CompTIA Network+ (N10-009) Post-Assessment</title>
     <style>
         :root {
             --primary-color: #004b87;
@@ -240,8 +240,8 @@
 <div class="container">
     <header>
         <h1>TECHFORCE Assessment Portal</h1>
-        <p>CompTIA CySA+ (CS0-003) Post-Assessment Test</p>
-        <div class="subtitle-line">Beginner / Refresher Level — 20 Very Simple Questions covering Security Operations, Vulnerability Management, Incident Response, Threat Hunting &amp; Security Fundamentals</div>
+        <p>CompTIA Network+ (N10-009) Post-Assessment Test</p>
+        <div class="subtitle-line">Medium to Hard Level — 20 Questions covering Switching &amp; Routing, Business Continuity Metrics, Network Security, DNS &amp; Email, Troubleshooting Methodology &amp; Core Protocols</div>
         <div class="meta-chips">
             <span class="meta-chip">Questions: 20 multiple-choice</span>
             <span class="meta-chip">Points: 5 each · 100 total</span>
@@ -257,7 +257,7 @@
              - Primary recipient: mactusinit@gmail.com  (form action above)
              - CC recipient:      atundaoba@gmail.com   (_cc field below)
              ============================================================ -->
-        <input type="hidden" name="_subject" id="cfg-subject" value="Official Result: TECHFORCE CySA+ (CS0-003) Post-Assessment Test">
+        <input type="hidden" name="_subject" id="cfg-subject" value="Official Result: TECHFORCE Network+ (N10-009) Post-Assessment Test">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_cc" id="cfg-cc" value="funmilayo.muritala@techforceitservices.com">
@@ -267,7 +267,7 @@
         <input type="hidden" name="Student First Name" id="payload-first">
         <input type="hidden" name="Student Last Name"  id="payload-last">
         <input type="hidden" name="Student Email"      id="payload-email">
-        <input type="hidden" name="Assessment Title"   value="CompTIA CySA+ (CS0-003) Post-Assessment Test">
+        <input type="hidden" name="Assessment Title"   value="CompTIA Network+ (N10-009) Post-Assessment Test">
         <input type="hidden" name="Final Score & Percentage" id="payload-score">
         <input type="hidden" name="Result (Pass mark 70%)"   id="payload-result">
         <input type="hidden" name="Submission Date"    id="payload-date">
@@ -296,7 +296,7 @@
         <div class="instructions-card">
             <h3>Instructions</h3>
             <ul>
-                <li>This is a post-assessment administered after instruction. It contains 20 beginner / refresher-level multiple-choice questions covering core CompTIA CySA+ concepts.</li>
+                <li>This is a post-assessment administered after instruction. It contains 20 medium-to-hard multiple-choice questions covering core CompTIA Network+ concepts.</li>
                 <li>Each question has four options (A–D). Choose the single best answer for each question and select the letter of your answer. Do not mark more than one answer per question.</li>
                 <li>Each question is worth 5 points (100 points total). Passing benchmark: 70% (14 of 20 questions / 70 of 100 points). Aim to complete within 30 minutes.</li>
                 <li>Enter your first name, last name, and email at the top. All fields and all questions are required before you can submit.</li>
@@ -344,11 +344,11 @@
 const PRIMARY_EMAIL    = "mactusinit@gmail.com";
 const CC_EMAIL         = "temitopeabidemi155@gmail.com";
 const PASS_MARK        = 0.70;
-const ASSESSMENT_TITLE = "CompTIA CySA+ (CS0-003) Post-Assessment Test";
+const ASSESSMENT_TITLE = "CompTIA Network+ (N10-009) Post-Assessment Test";
 const PORTAL_NAME      = "TECHFORCE Assessment Portal";
 
 /* ============================================================================
-   EDITABLE QUESTION BANK  (Extracted from CySA_Post_Assessment.pdf)
+   EDITABLE QUESTION BANK  (Extracted from Network_Plus_N10-009_Assessment.pdf)
    Correct answers are stored here for grading only — they are NOT shown on the form.
    ============================================================================ */
 const quizData = [
@@ -359,242 +359,244 @@ const quizData = [
             {
                 id: "q1",
                 num: 1,
-                text: "The CySA+ certification is best described as a credential in:",
+                text: "STP root selection. Three switches run STP with default settings. Switch A has priority 32768 and MAC 00:1A:2B:00:00:01. Switch B has priority 32768 and MAC 00:0C:11:22:33:44. Switch C has priority 4096 and MAC FF:EE:DD:CC:BB:AA. Which switch becomes the root bridge?",
                 options: [
-                    "A. Network cabling and hardware repair",
-                    "B. Malware development",
-                    "C. Defensive security analysis and threat detection",
-                    "D. Video game design"
+                    "A. Switch A, because its MAC address is lowest numerically in the first octet group",
+                    "B. Switch B, because it has the lowest MAC address among equal-priority switches",
+                    "C. Switch C, because the lowest bridge ID (priority plus MAC) wins and priority is compared first",
+                    "D. Switch C, because the highest MAC address breaks ties in favor of newer devices"
                 ],
                 answer: "C"
             },
             {
                 id: "q2",
                 num: 2,
-                text: "What does SIEM stand for?",
+                text: "STP port roles. Which statement about STP is correct?",
                 options: [
-                    "A. Security Information and Event Management",
-                    "B. System Integrity and Encryption Module",
-                    "C. Secure Internet Email Messaging",
-                    "D. Standard Input and Error Monitoring"
-                ],
-                answer: "A"
-            },
-            {
-                id: "q3",
-                num: 3,
-                text: "The three parts of the CIA triad are:",
-                options: [
-                    "A. Control, Integrity, Access",
-                    "B. Confidentiality, Integrity, Availability",
-                    "C. Confidence, Identity, Authentication",
-                    "D. Confidentiality, Identification, Authorization"
+                    "A. A root port is the port on each switch that forwards traffic away from the root bridge.",
+                    "B. Switches exchange BPDUs, and a port that would create a loop is placed in a blocking (non-designated) role.",
+                    "C. STP prevents loops by assigning each frame a time-to-live value that decrements at each switch.",
+                    "D. Topology Change Notifications are sent only by the root bridge to reset all ports to forwarding."
                 ],
                 answer: "B"
             },
             {
-                id: "q4",
-                num: 4,
-                text: "“Phishing” is best described as:",
+                id: "q3",
+                num: 3,
+                text: "Route selection. A router has these routes, and a packet arrives destined for 10.1.1.5:",
+                scenario: "10.1.1.0/24 learned via OSPF (AD 110, metric 20)\n10.1.1.0/28 learned via RIP (AD 120, metric 3)\n0.0.0.0/0 static (AD 1)",
+                textAfter: "Which route is used, and why?",
                 options: [
-                    "A. Encrypting files to keep them safe",
-                    "B. A network scanning technique",
-                    "C. A hardware failure",
-                    "D. Deceptive messages that trick people into revealing information"
+                    "A. The static default route, because it has the lowest AD",
+                    "B. The OSPF /24 route, because OSPF is more trustworthy than RIP",
+                    "C. The RIP /28 route only if its metric is lower than OSPF's",
+                    "D. The RIP /28 route, because the longest matching prefix is evaluated before AD or metric"
                 ],
                 answer: "D"
             },
             {
-                id: "q5",
-                num: 5,
-                text: "What does the word “malware” mean?",
+                id: "q4",
+                num: 4,
+                text: "Native VLAN. Which configuration follows best practice for a trunk between two switches?",
                 options: [
-                    "A. Malicious software",
-                    "B. Managed hardware",
-                    "C. Mail server software",
-                    "D. Manual data entry"
+                    "A. Change the native VLAN to an unused VLAN ID and configure the same native VID on both ends.",
+                    "B. Leave the native VLAN as VLAN 1 so that spanning tree and user traffic share one VLAN.",
+                    "C. Set a different native VID on each end so untagged frames are dropped by mismatch.",
+                    "D. Assign the native VLAN to the same ID as the user data VLAN to avoid tagging overhead."
                 ],
                 answer: "A"
             },
             {
+                id: "q5",
+                num: 5,
+                text: "MTD, RTO, and WRT. A business function has an MTD of 8 hours. The IT team estimates an RTO of 5 hours and a WRT of 4 hours. What is the problem, and what is the correct response?",
+                options: [
+                    "A. There is no problem, because RTO is less than MTD.",
+                    "B. The RPO is too high. Reduce backup frequency.",
+                    "C. RTO + WRT is 9 hours and exceeds the MTD. Shorten the RTO, the WRT, or both, or negotiate a higher MTD.",
+                    "D. WRT should be added to the RPO, not the RTO, so the plan is valid as written."
+                ],
+                answer: "C"
+            },
+            {
                 id: "q6",
                 num: 6,
-                text: "In security terms, a “vulnerability” is:",
+                text: "RPO. Backups run nightly at 01:00. Management requires an RPO of 4 hours. Does the current arrangement meet it?",
                 options: [
-                    "A. A hacker",
-                    "B. A security tool",
-                    "C. Damage that has already happened",
-                    "D. A weakness that could be exploited"
+                    "A. Yes, because a restore can complete within 4 hours.",
+                    "B. No. A failure at 00:30 could lose up to about 24 hours of data, so backups or replication must be more frequent.",
+                    "C. Yes, because RPO only applies to hot-site recoveries.",
+                    "D. No, but only because the RTO has not been defined."
                 ],
-                answer: "D"
+                answer: "B"
             },
             {
                 id: "q7",
                 num: 7,
-                text: "CVSS is mainly used to:",
+                text: "MTBF. A fleet of 20 identical access points each ran for 100 hours during a test period, and 4 failures occurred in total. Using the guide's method (total operational time divided by number of failures), what is the MTBF?",
                 options: [
-                    "A. Install operating systems",
-                    "B. Score how severe a vulnerability is",
-                    "C. Design network cables",
-                    "D. Recover deleted files"
+                    "A. 125 hours",
+                    "B. 500 hours",
+                    "C. 2,000 hours",
+                    "D. 80 hours"
                 ],
                 answer: "B"
             },
             {
                 id: "q8",
                 num: 8,
-                text: "What is the FIRST phase of the typical incident response lifecycle?",
+                text: "Switch security. An attacker on an access port floods the segment with gratuitous ARP replies to poison other hosts' ARP caches for an on-path attack. Which switch feature mitigates this?",
                 options: [
-                    "A. Preparation",
-                    "B. Notifying the public",
-                    "C. Rebuilding servers",
-                    "D. Paying the attacker"
-                ],
-                answer: "A"
-            },
-            {
-                id: "q9",
-                num: 9,
-                text: "An IDS (Intrusion Detection System) is designed to:",
-                options: [
-                    "A. Block all network traffic",
-                    "B. Store passwords safely",
-                    "C. Encrypt disk drives",
-                    "D. Detect and alert on suspicious activity"
+                    "A. BPDU filtering",
+                    "B. DHCP snooping",
+                    "C. Port mirroring",
+                    "D. Dynamic ARP inspection (DAI)"
                 ],
                 answer: "D"
             },
             {
-                id: "q10",
-                num: 10,
-                text: "Encryption is mainly used to protect:",
+                id: "q9",
+                num: 9,
+                text: "Rogue DHCP. Users on one floor are receiving a wrong default gateway from an unauthorized DHCP server. Which solution addresses this?",
                 options: [
-                    "A. Data confidentiality",
-                    "B. Screen brightness",
-                    "C. Print quality",
-                    "D. Network speed"
+                    "A. Enable DHCP snooping, marking only the port toward the legitimate DHCP server as trusted",
+                    "B. Enable DAI on all access ports",
+                    "C. Disable IPv6 on all hosts",
+                    "D. Shorten the DHCP lease time to 1 hour"
                 ],
                 answer: "A"
             },
             {
+                id: "q10",
+                num: 10,
+                text: "Securing management traffic. A monitoring system polls devices with SNMPv2c community strings sent in cleartext. What is the recommended fix?",
+                options: [
+                    "A. Rename the community strings monthly",
+                    "B. Move SNMP to TCP port 443",
+                    "C. Migrate to SNMPv3, or encrypt SNMP traffic with an encapsulation protocol such as IPsec",
+                    "D. Restrict SNMP polling to business hours"
+                ],
+                answer: "C"
+            },
+            {
                 id: "q11",
                 num: 11,
-                text: "A firewall’s main job is to:",
+                text: "Email authentication. Which statement correctly distinguishes SPF from DKIM?",
                 options: [
-                    "A. Back up files",
-                    "B. Filter traffic based on security rules",
-                    "C. Create user passwords",
-                    "D. Speed up the internet"
+                    "A. SPF signs messages cryptographically, while DKIM lists the sender's IP addresses.",
+                    "B. SPF lists the IP addresses authorized to send mail for a domain, while DKIM uses encrypted signatures to show a message is genuine.",
+                    "C. Both are used only to encrypt message content in transit.",
+                    "D. SPF is for inbound filtering only, and DKIM is for outbound only, with no overlap in spoofing protection."
                 ],
                 answer: "B"
             },
             {
                 id: "q12",
                 num: 12,
-                text: "Multi-factor authentication (MFA) requires:",
+                text: "DNS records. A web server has an A record lamp. You want www and intranet to resolve to the same server, so that a future IP change requires editing only one record. What should you create?",
                 options: [
-                    "A. Only a username",
-                    "B. Two or more types of proof of identity",
-                    "C. A longer password every month",
-                    "D. A fingerprint only"
+                    "A. CNAME records for www and intranet pointing to lamp",
+                    "B. Separate A records for each name with the same IP",
+                    "C. MX records for www and intranet",
+                    "D. PTR records for www and intranet"
                 ],
-                answer: "B"
+                answer: "A"
             },
             {
                 id: "q13",
                 num: 13,
-                text: "Threat hunting means:",
+                text: "Troubleshooting methodology. You have tested your theory of probable cause and confirmed it. Per CompTIA's methodology, what is the next step?",
                 options: [
-                    "A. Searching proactively for hidden threats instead of waiting for alerts",
-                    "B. Installing antivirus software",
-                    "C. Deleting old logs",
-                    "D. Reporting coworkers"
-                ],
-                answer: "A"
-            },
-            {
-                id: "q14",
-                num: 14,
-                text: "A honeypot is:",
-                options: [
-                    "A. A backup storage device",
-                    "B. A password manager",
-                    "C. A decoy system set up to attract and observe attackers",
-                    "D. A type of virus"
-                ],
-                answer: "C"
-            },
-            {
-                id: "q15",
-                num: 15,
-                text: "Patch management is the process of:",
-                options: [
-                    "A. Writing new security policies only",
-                    "B. Applying updates to fix known vulnerabilities",
-                    "C. Hiring new analysts",
-                    "D. Deleting unused accounts"
-                ],
-                answer: "B"
-            },
-            {
-                id: "q16",
-                num: 16,
-                text: "A “zero-day” vulnerability is one that:",
-                options: [
-                    "A. Has been patched for a year",
-                    "B. Only affects old printers",
-                    "C. Affects exactly zero computers",
-                    "D. Is unknown to the vendor and has no fix yet"
+                    "A. Document findings, actions, and outcomes",
+                    "B. Verify full system functionality",
+                    "C. Implement the solution",
+                    "D. Establish a plan of action to resolve the problem and identify potential effects"
                 ],
                 answer: "D"
             },
             {
-                id: "q17",
-                num: 17,
-                text: "Security log analysis in a SOC mostly means:",
+                id: "q14",
+                num: 14,
+                text: "Subnetting. A host is configured as 192.168.10.130/26. What is the broadcast address of its subnet?",
                 options: [
-                    "A. Reviewing logs to spot unusual or malicious activity",
-                    "B. Printing logs on paper",
-                    "C. Erasing logs daily",
-                    "D. Selling logs to third parties"
-                ],
-                answer: "A"
-            },
-            {
-                id: "q18",
-                num: 18,
-                text: "In security monitoring, a “baseline” is:",
-                options: [
-                    "A. A type of malware",
-                    "B. A known normal state used to spot changes or anomalies",
-                    "C. A firewall brand",
-                    "D. An encryption method"
+                    "A. 192.168.10.129",
+                    "B. 192.168.10.191",
+                    "C. 192.168.10.255",
+                    "D. 192.168.10.192"
                 ],
                 answer: "B"
             },
             {
-                id: "q19",
-                num: 19,
-                text: "Social engineering is best described as:",
+                id: "q15",
+                num: 15,
+                text: "DHCP relay. Clients in VLAN 10 get valid addresses, but clients in VLAN 20 show 169.254.x.x. The only DHCP server is in VLAN 10, and both VLANs route through the same L3 switch. What is the most likely cause?",
                 options: [
-                    "A. Designing secure buildings",
-                    "B. Writing computer code",
-                    "C. Manipulating people to reveal information or take actions",
-                    "D. Testing network cables"
+                    "A. The VLAN 20 clients have static DNS entries.",
+                    "B. The DHCP server's lease pool is too large.",
+                    "C. DHCP relay (IP helper) is not configured on the VLAN 20 gateway interface, so broadcasts never reach the server.",
+                    "D. The VLAN 20 clients are using SLAAC successfully, so APIPA is expected."
                 ],
                 answer: "C"
             },
             {
-                id: "q20",
-                num: 20,
-                text: "A “false positive” in security alerts is:",
+                id: "q16",
+                num: 16,
+                text: "Dynamic routing. Which statement about OSPF is correct?",
                 options: [
-                    "A. An alert about activity that is actually harmless",
-                    "B. A real attack that was missed",
-                    "C. A hacker who gave up",
-                    "D. A broken monitor"
+                    "A. It groups routers within an autonomous system into areas and uses hello messages to discover and maintain neighbors.",
+                    "B. It is an exterior gateway protocol used primarily to exchange routes between ISPs.",
+                    "C. It uses only hop count as its metric and sends full routing tables periodically.",
+                    "D. It requires static routes between every pair of routers to converge."
                 ],
                 answer: "A"
+            },
+            {
+                id: "q17",
+                num: 17,
+                text: "NAT. A branch of 200 hosts shares one public IP address and also hosts an internal web server that must be reachable from the Internet. Which combination is appropriate?",
+                options: [
+                    "A. Dynamic NAT with a pool of one address for both",
+                    "B. Static NAT for all 200 hosts",
+                    "C. PAT for the clients and a static mapping for the web server",
+                    "D. PAT for the web server and a 1:1 static NAT for each client"
+                ],
+                answer: "C"
+            },
+            {
+                id: "q18",
+                num: 18,
+                text: "802.1X. In a wired 802.1X deployment, which describes the access switch's role and behavior?",
+                options: [
+                    "A. It acts as the supplicant and sends credentials to the RADIUS server directly.",
+                    "B. It acts as the authentication server and stores user credentials locally.",
+                    "C. It acts as the authenticator, relaying EAP between the client and an authentication server and limiting the port until authentication succeeds.",
+                    "D. It acts as a proxy that bypasses authentication for known MAC addresses."
+                ],
+                answer: "C"
+            },
+            {
+                id: "q19",
+                num: 19,
+                text: "IPv6 spoofing. A rogue device on an access port sends fake IPv6 router advertisements to redirect traffic. Which control is the best fit?",
+                options: [
+                    "A. DHCP snooping",
+                    "B. RA Guard, with ND inspection",
+                    "C. Dynamic ARP inspection",
+                    "D. Disabling IPv6 on all hosts, which the guide recommends as the safest approach"
+                ],
+                answer: "B"
+            },
+            {
+                id: "q20",
+                num: 20,
+                text: "Transport protocols. Which pairing is correct?",
+                options: [
+                    "A. TFTP uses TCP port 69.",
+                    "B. SMTP uses UDP port 25.",
+                    "C. NTP uses TCP port 123.",
+                    "D. SNMP agent queries use UDP port 161."
+                ],
+                answer: "D"
             }
         ]
     }
@@ -830,7 +832,7 @@ function buildResultPdf(p) {
 
         y = 92;
         doc.text(M, y, ASSESSMENT_TITLE, { size: 19, bold: true, color: PDF_C.primary }); y += 16;
-        doc.text(M, y, 'CySA+ CS0-003 Post-Assessment - Result Report', { size: 10.5, color: PDF_C.gray }); y += 18;
+        doc.text(M, y, 'Network+ N10-009 Post-Assessment - Result Report', { size: 10.5, color: PDF_C.gray }); y += 18;
     }
 
     function drawInfoBox() {
@@ -1178,7 +1180,7 @@ document.getElementById('assessment-form').addEventListener('submit', async func
 
     const pdfBytes = buildResultPdf(payload);
     const safeName = (s) => s.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '');
-    const pdfName = `CySA-PostAssessment-Result-${safeName(payload.first)}-${safeName(payload.last)}-${new Date().toISOString().slice(0, 10)}.pdf`;
+    const pdfName = `NetworkPlus-PostAssessment-Result-${safeName(payload.first)}-${safeName(payload.last)}-${new Date().toISOString().slice(0, 10)}.pdf`;
     const pdfFile = new File([pdfBytes], pdfName, { type: 'application/pdf' });
 
     document.getElementById('payload-first').value = payload.first;
