@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHFORCE Assessment Portal - CompTIA Network+ (N10-009) Post-Assessment</title>
+    <title>TECHFORCE Assessment Portal - CompTIA Network+ Foundations Quiz</title>
     <style>
         :root {
             --primary-color: #004b87;
@@ -240,11 +240,11 @@
 <div class="container">
     <header>
         <h1>TECHFORCE Assessment Portal</h1>
-        <p>CompTIA Network+ (N10-009) Post-Assessment Test</p>
-        <div class="subtitle-line">Medium to Hard Level — 20 Questions covering Switching &amp; Routing, Business Continuity Metrics, Network Security, DNS &amp; Email, Troubleshooting Methodology &amp; Core Protocols</div>
+        <p>CompTIA Network+ Foundations Quiz</p>
+        <div class="subtitle-line">20 simple questions based on The Official CompTIA Network+ Student Guide[cite: 2]</div>
         <div class="meta-chips">
             <span class="meta-chip">Questions: 20 multiple-choice</span>
-            <span class="meta-chip">Points: 5 each · 100 total</span>
+            <span class="meta-chip">Points: 1 each · 20 total</span>
             <span class="meta-chip">Time: 30 minutes</span>
             <span class="meta-chip">Pass mark: 70% (14/20)</span>
             <span class="meta-chip">Format: Single best answer</span>
@@ -257,7 +257,7 @@
              - Primary recipient: mactusinit@gmail.com  (form action above)
              - CC recipient:      atundaoba@gmail.com   (_cc field below)
              ============================================================ -->
-        <input type="hidden" name="_subject" id="cfg-subject" value="Official Result: TECHFORCE Network+ (N10-009) Post-Assessment Test">
+        <input type="hidden" name="_subject" id="cfg-subject" value="Official Result: TECHFORCE Network+ Foundations Quiz">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_cc" id="cfg-cc" value="funmilayo.muritala@techforceitservices.com">
@@ -267,7 +267,7 @@
         <input type="hidden" name="Student First Name" id="payload-first">
         <input type="hidden" name="Student Last Name"  id="payload-last">
         <input type="hidden" name="Student Email"      id="payload-email">
-        <input type="hidden" name="Assessment Title"   value="CompTIA Network+ (N10-009) Post-Assessment Test">
+        <input type="hidden" name="Assessment Title"   value="CompTIA Network+ Foundations Quiz">
         <input type="hidden" name="Final Score & Percentage" id="payload-score">
         <input type="hidden" name="Result (Pass mark 70%)"   id="payload-result">
         <input type="hidden" name="Submission Date"    id="payload-date">
@@ -296,9 +296,9 @@
         <div class="instructions-card">
             <h3>Instructions</h3>
             <ul>
-                <li>This is a post-assessment administered after instruction. It contains 20 medium-to-hard multiple-choice questions covering core CompTIA Network+ concepts.</li>
-                <li>Each question has four options (A–D). Choose the single best answer for each question and select the letter of your answer. Do not mark more than one answer per question.</li>
-                <li>Each question is worth 5 points (100 points total). Passing benchmark: 70% (14 of 20 questions / 70 of 100 points). Aim to complete within 30 minutes.</li>
+                <li>This quiz contains 20 simple questions based on The Official CompTIA Network+ Student Guide[cite: 2].</li>
+                <li>Each question has four options (A–D). Choose the single best answer for each question and select the letter of your answer. Do not mark more than one answer per question[cite: 2].</li>
+                <li>Passing benchmark: 70% (14 of 20 questions). Aim to complete within 30 minutes.</li>
                 <li>Enter your first name, last name, and email at the top. All fields and all questions are required before you can submit.</li>
             </ul>
         </div>
@@ -344,259 +344,257 @@
 const PRIMARY_EMAIL    = "mactusinit@gmail.com";
 const CC_EMAIL         = "temitopeabidemi155@gmail.com";
 const PASS_MARK        = 0.70;
-const ASSESSMENT_TITLE = "CompTIA Network+ (N10-009) Post-Assessment Test";
+const ASSESSMENT_TITLE = "CompTIA Network+ Foundations Quiz";
 const PORTAL_NAME      = "TECHFORCE Assessment Portal";
 
 /* ============================================================================
-   EDITABLE QUESTION BANK  (Extracted from Network_Plus_N10-009_Assessment.pdf)
+   EDITABLE QUESTION BANK  (Extracted from Network_Plus_Simple_Questions.pdf)[cite: 2, 3, 4]
    Correct answers are stored here for grading only — they are NOT shown on the form.
    ============================================================================ */
 const quizData = [
     {
-        sectionTitle: "POST-ASSESSMENT QUESTIONS",
-        sectionWeight: "20 QUESTIONS \u00b7 5 POINTS EACH \u00b7 100 TOTAL",
+        sectionTitle: "FOUNDATIONS QUIZ QUESTIONS",
+        sectionWeight: "20 QUESTIONS \u00b7 1 POINT EACH \u00b7 20 TOTAL",
         questions: [
             {
                 id: "q1",
                 num: 1,
-                text: "STP root selection. Three switches run STP with default settings. Switch A has priority 32768 and MAC 00:1A:2B:00:00:01. Switch B has priority 32768 and MAC 00:0C:11:22:33:44. Switch C has priority 4096 and MAC FF:EE:DD:CC:BB:AA. Which switch becomes the root bridge?",
+                text: "Which OSI layer do routers primarily operate at?",
                 options: [
-                    "A. Switch A, because its MAC address is lowest numerically in the first octet group",
-                    "B. Switch B, because it has the lowest MAC address among equal-priority switches",
-                    "C. Switch C, because the lowest bridge ID (priority plus MAC) wins and priority is compared first",
-                    "D. Switch C, because the highest MAC address breaks ties in favor of newer devices"
+                    "A. Layer 1 (Physical)",
+                    "B. Layer 3 (Network)",
+                    "C. Layer 2 (Data Link)",
+                    "D. Layer 4 (Transport)"
                 ],
-                answer: "C"
+                answer: "B"
             },
             {
                 id: "q2",
                 num: 2,
-                text: "STP port roles. Which statement about STP is correct?",
+                text: "Which device forwards frames within a LAN based on MAC addresses?",
                 options: [
-                    "A. A root port is the port on each switch that forwards traffic away from the root bridge.",
-                    "B. Switches exchange BPDUs, and a port that would create a loop is placed in a blocking (non-designated) role.",
-                    "C. STP prevents loops by assigning each frame a time-to-live value that decrements at each switch.",
-                    "D. Topology Change Notifications are sent only by the root bridge to reset all ports to forwarding."
+                    "A. Router",
+                    "B. Modem",
+                    "C. Repeater",
+                    "D. Switch"
                 ],
-                answer: "B"
+                answer: "D"
             },
             {
                 id: "q3",
                 num: 3,
-                text: "Route selection. A router has these routes, and a packet arrives destined for 10.1.1.5:",
-                scenario: "10.1.1.0/24 learned via OSPF (AD 110, metric 20)\n10.1.1.0/28 learned via RIP (AD 120, metric 3)\n0.0.0.0/0 static (AD 1)",
-                textAfter: "Which route is used, and why?",
+                text: "What is the default port number for HTTPS?",
                 options: [
-                    "A. The static default route, because it has the lowest AD",
-                    "B. The OSPF /24 route, because OSPF is more trustworthy than RIP",
-                    "C. The RIP /28 route only if its metric is lower than OSPF's",
-                    "D. The RIP /28 route, because the longest matching prefix is evaluated before AD or metric"
+                    "A. 443",
+                    "B. 80",
+                    "C. 22",
+                    "D. 25"
                 ],
-                answer: "D"
+                answer: "A"
             },
             {
                 id: "q4",
                 num: 4,
-                text: "Native VLAN. Which configuration follows best practice for a trunk between two switches?",
+                text: "Which protocol replaced Telnet for secure, encrypted remote administration?",
                 options: [
-                    "A. Change the native VLAN to an unused VLAN ID and configure the same native VID on both ends.",
-                    "B. Leave the native VLAN as VLAN 1 so that spanning tree and user traffic share one VLAN.",
-                    "C. Set a different native VID on each end so untagged frames are dropped by mismatch.",
-                    "D. Assign the native VLAN to the same ID as the user data VLAN to avoid tagging overhead."
+                    "A. FTP",
+                    "B. SNMP",
+                    "C. SSH",
+                    "D. TFTP"
                 ],
-                answer: "A"
+                answer: "C"
             },
             {
                 id: "q5",
                 num: 5,
-                text: "MTD, RTO, and WRT. A business function has an MTD of 8 hours. The IT team estimates an RTO of 5 hours and a WRT of 4 hours. What is the problem, and what is the correct response?",
+                text: "What is the main job of DNS?",
                 options: [
-                    "A. There is no problem, because RTO is less than MTD.",
-                    "B. The RPO is too high. Reduce backup frequency.",
-                    "C. RTO + WRT is 9 hours and exceeds the MTD. Shorten the RTO, the WRT, or both, or negotiate a higher MTD.",
-                    "D. WRT should be added to the RPO, not the RTO, so the plan is valid as written."
+                    "A. Assign IP addresses automatically",
+                    "B. Translate domain names into IP addresses",
+                    "C. Encrypt web traffic",
+                    "D. Translate private IP addresses to public ones"
                 ],
-                answer: "C"
+                answer: "B"
             },
             {
                 id: "q6",
                 num: 6,
-                text: "RPO. Backups run nightly at 01:00. Management requires an RPO of 4 hours. Does the current arrangement meet it?",
+                text: "What does DHCP do?",
                 options: [
-                    "A. Yes, because a restore can complete within 4 hours.",
-                    "B. No. A failure at 00:30 could lose up to about 24 hours of data, so backups or replication must be more frequent.",
-                    "C. Yes, because RPO only applies to hot-site recoveries.",
-                    "D. No, but only because the RTO has not been defined."
+                    "A. Resolves hostnames to IP addresses",
+                    "B. Blocks unauthorized traffic",
+                    "C. Synchronizes system clocks",
+                    "D. Automatically assigns IP configuration to clients"
                 ],
-                answer: "B"
+                answer: "D"
             },
             {
                 id: "q7",
                 num: 7,
-                text: "MTBF. A fleet of 20 identical access points each ran for 100 hours during a test period, and 4 failures occurred in total. Using the guide's method (total operational time divided by number of failures), what is the MTBF?",
+                text: "Which of these is a private IPv4 address?",
                 options: [
-                    "A. 125 hours",
-                    "B. 500 hours",
-                    "C. 2,000 hours",
-                    "D. 80 hours"
+                    "A. 192.168.1.10",
+                    "B. 8.8.8.8",
+                    "C. 172.32.0.1",
+                    "D. 200.10.5.1"
                 ],
-                answer: "B"
+                answer: "A"
             },
             {
                 id: "q8",
                 num: 8,
-                text: "Switch security. An attacker on an access port floods the segment with gratuitous ARP replies to poison other hosts' ARP caches for an on-path attack. Which switch feature mitigates this?",
+                text: "How many bits are in an IPv6 address?",
                 options: [
-                    "A. BPDU filtering",
-                    "B. DHCP snooping",
-                    "C. Port mirroring",
-                    "D. Dynamic ARP inspection (DAI)"
+                    "A. 32",
+                    "B. 48",
+                    "C. 128",
+                    "D. 64"
                 ],
-                answer: "D"
+                answer: "C"
             },
             {
                 id: "q9",
                 num: 9,
-                text: "Rogue DHCP. Users on one floor are receiving a wrong default gateway from an unauthorized DHCP server. Which solution addresses this?",
+                text: "Which cable type transmits data as light and is immune to electromagnetic interference?",
                 options: [
-                    "A. Enable DHCP snooping, marking only the port toward the legitimate DHCP server as trusted",
-                    "B. Enable DAI on all access ports",
-                    "C. Disable IPv6 on all hosts",
-                    "D. Shorten the DHCP lease time to 1 hour"
+                    "A. Unshielded twisted pair",
+                    "B. Fiber optic",
+                    "C. Coaxial",
+                    "D. Shielded twisted pair"
                 ],
-                answer: "A"
+                answer: "B"
             },
             {
                 id: "q10",
                 num: 10,
-                text: "Securing management traffic. A monitoring system polls devices with SNMPv2c community strings sent in cleartext. What is the recommended fix?",
+                text: "In which topology is every device connected to a central switch or hub?",
                 options: [
-                    "A. Rename the community strings monthly",
-                    "B. Move SNMP to TCP port 443",
-                    "C. Migrate to SNMPv3, or encrypt SNMP traffic with an encapsulation protocol such as IPsec",
-                    "D. Restrict SNMP polling to business hours"
+                    "A. Star",
+                    "B. Bus",
+                    "C. Ring",
+                    "D. Mesh"
                 ],
-                answer: "C"
+                answer: "A"
             },
             {
                 id: "q11",
                 num: 11,
-                text: "Email authentication. Which statement correctly distinguishes SPF from DKIM?",
+                text: "Which transport protocol is connectionless and does not guarantee delivery?",
                 options: [
-                    "A. SPF signs messages cryptographically, while DKIM lists the sender's IP addresses.",
-                    "B. SPF lists the IP addresses authorized to send mail for a domain, while DKIM uses encrypted signatures to show a message is genuine.",
-                    "C. Both are used only to encrypt message content in transit.",
-                    "D. SPF is for inbound filtering only, and DKIM is for outbound only, with no overlap in spoofing protection."
+                    "A. TCP",
+                    "B. ICMP",
+                    "C. ARP",
+                    "D. UDP"
                 ],
-                answer: "B"
+                answer: "D"
             },
             {
                 id: "q12",
                 num: 12,
-                text: "DNS records. A web server has an A record lamp. You want www and intranet to resolve to the same server, so that a future IP change requires editing only one record. What should you create?",
+                text: "The ping command uses which protocol?",
                 options: [
-                    "A. CNAME records for www and intranet pointing to lamp",
-                    "B. Separate A records for each name with the same IP",
-                    "C. MX records for www and intranet",
-                    "D. PTR records for www and intranet"
+                    "A. TCP",
+                    "B. SNMP",
+                    "C. ICMP",
+                    "D. DHCP"
                 ],
-                answer: "A"
+                answer: "C"
             },
             {
                 id: "q13",
                 num: 13,
-                text: "Troubleshooting methodology. You have tested your theory of probable cause and confirmed it. Per CompTIA's methodology, what is the next step?",
+                text: "Which Windows command displays a computer's IP configuration?",
                 options: [
-                    "A. Document findings, actions, and outcomes",
-                    "B. Verify full system functionality",
-                    "C. Implement the solution",
-                    "D. Establish a plan of action to resolve the problem and identify potential effects"
+                    "A. ifconfig",
+                    "B. ipconfig",
+                    "C. nslookup",
+                    "D. netstat -r"
                 ],
-                answer: "D"
+                answer: "B"
             },
             {
                 id: "q14",
                 num: 14,
-                text: "Subnetting. A host is configured as 192.168.10.130/26. What is the broadcast address of its subnet?",
+                text: "What is the subnet mask for a /24 network?",
                 options: [
-                    "A. 192.168.10.129",
-                    "B. 192.168.10.191",
-                    "C. 192.168.10.255",
-                    "D. 192.168.10.192"
+                    "A. 255.255.0.0",
+                    "B. 255.255.255.128",
+                    "C. 255.255.255.252",
+                    "D. 255.255.255.0"
                 ],
-                answer: "B"
+                answer: "D"
             },
             {
                 id: "q15",
                 num: 15,
-                text: "DHCP relay. Clients in VLAN 10 get valid addresses, but clients in VLAN 20 show 169.254.x.x. The only DHCP server is in VLAN 10, and both VLANs route through the same L3 switch. What is the most likely cause?",
+                text: "What is the main purpose of a VLAN?",
                 options: [
-                    "A. The VLAN 20 clients have static DNS entries.",
-                    "B. The DHCP server's lease pool is too large.",
-                    "C. DHCP relay (IP helper) is not configured on the VLAN 20 gateway interface, so broadcasts never reach the server.",
-                    "D. The VLAN 20 clients are using SLAAC successfully, so APIPA is expected."
-                ],
-                answer: "C"
-            },
-            {
-                id: "q16",
-                num: 16,
-                text: "Dynamic routing. Which statement about OSPF is correct?",
-                options: [
-                    "A. It groups routers within an autonomous system into areas and uses hello messages to discover and maintain neighbors.",
-                    "B. It is an exterior gateway protocol used primarily to exchange routes between ISPs.",
-                    "C. It uses only hop count as its metric and sends full routing tables periodically.",
-                    "D. It requires static routes between every pair of routers to converge."
+                    "A. Logically separate a network into different broadcast domains",
+                    "B. Increase the speed of a single cable",
+                    "C. Translate IP addresses",
+                    "D. Provide wireless access"
                 ],
                 answer: "A"
             },
             {
+                id: "q16",
+                num: 16,
+                text: "Which Wi-Fi security standard is the strongest of these?",
+                options: [
+                    "A. WEP",
+                    "B. WPA",
+                    "C. WPA3",
+                    "D. Open (no security)"
+                ],
+                answer: "C"
+            },
+            {
                 id: "q17",
                 num: 17,
-                text: "NAT. A branch of 200 hosts shares one public IP address and also hosts an internal web server that must be reachable from the Internet. Which combination is appropriate?",
+                text: "What does a firewall do?",
                 options: [
-                    "A. Dynamic NAT with a pool of one address for both",
-                    "B. Static NAT for all 200 hosts",
-                    "C. PAT for the clients and a static mapping for the web server",
-                    "D. PAT for the web server and a 1:1 static NAT for each client"
-                ],
-                answer: "C"
-            },
-            {
-                id: "q18",
-                num: 18,
-                text: "802.1X. In a wired 802.1X deployment, which describes the access switch's role and behavior?",
-                options: [
-                    "A. It acts as the supplicant and sends credentials to the RADIUS server directly.",
-                    "B. It acts as the authentication server and stores user credentials locally.",
-                    "C. It acts as the authenticator, relaying EAP between the client and an authentication server and limiting the port until authentication succeeds.",
-                    "D. It acts as a proxy that bypasses authentication for known MAC addresses."
-                ],
-                answer: "C"
-            },
-            {
-                id: "q19",
-                num: 19,
-                text: "IPv6 spoofing. A rogue device on an access port sends fake IPv6 router advertisements to redirect traffic. Which control is the best fit?",
-                options: [
-                    "A. DHCP snooping",
-                    "B. RA Guard, with ND inspection",
-                    "C. Dynamic ARP inspection",
-                    "D. Disabling IPv6 on all hosts, which the guide recommends as the safest approach"
+                    "A. Converts digital data to analog signals",
+                    "B. Filters network traffic based on rules",
+                    "C. Assigns MAC addresses",
+                    "D. Stores backup copies of data"
                 ],
                 answer: "B"
             },
             {
-                id: "q20",
-                num: 20,
-                text: "Transport protocols. Which pairing is correct?",
+                id: "q18",
+                num: 18,
+                text: "Which tool would you use to check whether a copper cable has a break or wiring fault?",
                 options: [
-                    "A. TFTP uses TCP port 69.",
-                    "B. SMTP uses UDP port 25.",
-                    "C. NTP uses TCP port 123.",
-                    "D. SNMP agent queries use UDP port 161."
+                    "A. Cable tester",
+                    "B. Spectrum analyzer",
+                    "C. Protocol analyzer",
+                    "D. Loopback adapter only"
+                ],
+                answer: "A"
+            },
+            {
+                id: "q19",
+                num: 19,
+                text: "What is the first step in the CompTIA troubleshooting methodology?",
+                options: [
+                    "A. Implement the solution",
+                    "B. Document findings",
+                    "C. Establish a plan of action",
+                    "D. Identify the problem"
                 ],
                 answer: "D"
+            },
+            {
+                id: "q20",
+                num: 20,
+                text: "Which protocol is used to send email from a client to a mail server?",
+                options: [
+                    "A. POP3",
+                    "B. IMAP",
+                    "C. SMTP",
+                    "D. SNMP"
+                ],
+                answer: "C"
             }
         ]
     }
@@ -832,7 +830,7 @@ function buildResultPdf(p) {
 
         y = 92;
         doc.text(M, y, ASSESSMENT_TITLE, { size: 19, bold: true, color: PDF_C.primary }); y += 16;
-        doc.text(M, y, 'Network+ N10-009 Post-Assessment - Result Report', { size: 10.5, color: PDF_C.gray }); y += 18;
+        doc.text(M, y, 'Foundations Quiz - Result Report', { size: 10.5, color: PDF_C.gray }); y += 18;
     }
 
     function drawInfoBox() {
@@ -1180,7 +1178,7 @@ document.getElementById('assessment-form').addEventListener('submit', async func
 
     const pdfBytes = buildResultPdf(payload);
     const safeName = (s) => s.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '');
-    const pdfName = `NetworkPlus-PostAssessment-Result-${safeName(payload.first)}-${safeName(payload.last)}-${new Date().toISOString().slice(0, 10)}.pdf`;
+    const pdfName = `NetworkPlus-FoundationsQuiz-Result-${safeName(payload.first)}-${safeName(payload.last)}-${new Date().toISOString().slice(0, 10)}.pdf`;
     const pdfFile = new File([pdfBytes], pdfName, { type: 'application/pdf' });
 
     document.getElementById('payload-first').value = payload.first;
